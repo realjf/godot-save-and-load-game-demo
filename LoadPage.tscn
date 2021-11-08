@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://RemoveButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LoadPage.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -41,12 +42,16 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 186.0
 margin_top = 171.0
-margin_right = 289.0
-margin_bottom = 198.0
+margin_right = 273.0
+margin_bottom = 194.0
 text = "Load"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RemoveButton" parent="." instance=ExtResource( 1 )]
+margin_top = 170.449
+margin_bottom = 193.449
 
 [node name="ExitButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -55,8 +60,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -280.944
 margin_top = 169.878
-margin_right = -177.944
-margin_bottom = 196.878
+margin_right = -193.944
+margin_bottom = 192.878
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -38,7 +38,7 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_right = 583.0
-margin_bottom = 94.0
+margin_bottom = 80.0
 rect_min_size = Vector2( 500, 80 )
 size_flags_horizontal = 3
 size_flags_vertical = 3

@@ -7,6 +7,7 @@ onready var vbox = $ScrollContainer/VBoxContainer
 export(String, FILE) var recordItem = ""
 export(String, FILE) var styleBox = ""
 var normal_style = null
+var file_extension = ".save"
 
 var selected: RichTextLabel = null
 
@@ -17,15 +18,28 @@ func _ready():
 
 
 func load_files():
+	clear_all_child()
 	if len(files) > 0:
 		for r in files:
 			var record = load(recordItem).instance()
 			record.get_node("RichTextLabel").bbcode_text = r.name + "\t" + r.datetime
 			vbox.add_child(record)
 
+func clear_all_child():
+	for i in vbox.get_children():
+		vbox.remove_child(i)
+		
 
 func dir_contents(path):
+	files = []
 	var dir = Directory.new()
+	if !dir.dir_exists(loadDir):
+		if dir.make_dir_recursive(loadDir) == OK:
+			print("make dir " + loadDir + " successfully")
+		else:
+			print("make dir " + loadDir + " error")
+			return
+		
 	if dir.open(path) == OK:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
@@ -38,7 +52,7 @@ func dir_contents(path):
 					var time = OS.get_datetime_from_unix_time(file.get_modified_time(path + file_name))
 					var datetime = _format_time(time)
 					var f = {
-						"name": file_name,
+						"name": file_name.get_basename(),
 						"datetime": datetime,
 					}
 					print(f)
@@ -90,6 +104,6 @@ func _on_LoadButton_pressed():
 	var bbcodetext = selected.bbcode_text
 	var textArr = bbcodetext.split("\t")
 	print("loading: " + textArr[0] + " " + textArr[1])
-	print("file_path: " + loadDir + textArr[0])
+	print("file_path: " + loadDir + textArr[0] + file_extension)
 	pass
 	
