@@ -58,7 +58,8 @@ func dir_contents(path):
 						"datetime": datetime,
 					}
 					print(f)
-					files.append(f)
+					files.push_front(f)
+					# files.append(f)
 				else:
 					print("failed to read file: " + path + file_name)
 				
