@@ -8,6 +8,7 @@ export(String, FILE) var recordItem = ""
 export(String, FILE) var styleBox = ""
 var normal_style = null
 var file_extension = ".save"
+var flush = false
 
 var selected: RichTextLabel = null
 
@@ -101,6 +102,10 @@ func _process(delta):
 			normal_style = selected.get_stylebox("normal")
 			selected.add_stylebox_override("normal", new_style)
 
+	if visible and !flush:
+		dir_contents(loadDir)
+		load_files()
+		flush = true
 
 func _on_LoadButton_pressed():
 	var bbcodetext = selected.bbcode_text
@@ -109,3 +114,7 @@ func _on_LoadButton_pressed():
 	print("file_path: " + loadDir + textArr[0] + file_extension)
 	pass
 	
+
+
+func _on_LoadPage_visibility_changed():
+	flush = false

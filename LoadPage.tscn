@@ -88,6 +88,7 @@ focus_mode = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[connection signal="visibility_changed" from="." to="." method="_on_LoadPage_visibility_changed"]
 [connection signal="pressed" from="LoadButton" to="." method="_on_LoadButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="gui_input" from="ScrollContainer" to="ScrollContainer" method="_on_ScrollContainer_gui_input"]
