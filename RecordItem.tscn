@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[sub_resource type="StyleBoxFlat" id=1]
-border_color = Color( 0.835294, 0.823529, 0.0705882, 1 )
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.470588, 0.458824, 0.45098, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 10.0
@@ -31,13 +31,15 @@ border_color = Color( 0.862745, 0.85098, 0.0627451, 1 )
 margin_right = 583.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_right = 583.0
-margin_bottom = 80.0
+margin_bottom = 94.0
 rect_min_size = Vector2( 500, 80 )
-focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/focus = SubResource( 2 )

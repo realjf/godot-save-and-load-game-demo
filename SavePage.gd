@@ -1,6 +1,6 @@
 extends Control
 
-# online need change directory to user://
+
 var loadDir = "res://loadDir/"
 var files = []
 onready var vbox = $ScrollContainer/VBoxContainer
@@ -21,7 +21,9 @@ func load_files():
 		for r in files:
 			var record = load(recordItem).instance()
 			record.get_node("RichTextLabel").bbcode_text = r.name + "\t" + r.datetime
+			record.get_node("RichTextLabel").focus_mode = FOCUS_CLICK
 			vbox.add_child(record)
+
 
 
 func dir_contents(path):
@@ -84,12 +86,4 @@ func _process(delta):
 			var new_style = load(styleBox)
 			normal_style = selected.get_stylebox("normal")
 			selected.add_stylebox_override("normal", new_style)
-
-
-func _on_LoadButton_pressed():
-	var bbcodetext = selected.bbcode_text
-	var textArr = bbcodetext.split("\t")
-	print("loading: " + textArr[0] + " " + textArr[1])
-	print("file_path: " + loadDir + textArr[0])
-	pass
 	

@@ -19,6 +19,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 recordItem = "res://RecordItem.tscn"
+styleBox = "res://SelectItemStyle.tres"
 
 [node name="Panel" type="Panel" parent="."]
 anchor_left = 0.5
