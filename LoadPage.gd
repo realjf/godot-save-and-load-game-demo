@@ -36,6 +36,7 @@ func dir_contents(path):
 					var datetime = _format_time(time)
 					var f = {
 						"name": file_name,
+						"file_path": path + file_name,
 						"datetime": datetime,
 					}
 					print(f)
