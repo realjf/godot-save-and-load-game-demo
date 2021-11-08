@@ -102,7 +102,7 @@ func _process(delta):
 			normal_style = selected.get_stylebox("normal")
 			selected.add_stylebox_override("normal", new_style)
 
-	if visible and !flush:
+	if !flush:
 		dir_contents(loadDir)
 		load_files()
 		flush = true
