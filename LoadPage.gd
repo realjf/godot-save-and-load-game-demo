@@ -1,5 +1,6 @@
 extends Control
 
+# online need change directory to user://
 var loadDir = "res://loadDir/"
 var files = []
 onready var vbox = $ScrollContainer/VBoxContainer
@@ -36,7 +37,6 @@ func dir_contents(path):
 					var datetime = _format_time(time)
 					var f = {
 						"name": file_name,
-						"file_path": path + file_name,
 						"datetime": datetime,
 					}
 					print(f)
@@ -80,6 +80,9 @@ func _process(delta):
 
 
 func _on_LoadButton_pressed():
-	print("loading: " + selected.bbcode_text)
+	var bbcodetext = selected.bbcode_text
+	var textArr = bbcodetext.split("\t")
+	print("loading: " + textArr[0] + " " + textArr[1])
+	print("file_path: " + loadDir + textArr[0])
 	pass
 	
