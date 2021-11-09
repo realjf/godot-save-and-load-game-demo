@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://LoadPage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SavePage.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MainScreen.gd" type="Script" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -168.709
+margin_top = 44.7653
+margin_right = -73.7086
+margin_bottom = 67.7653
+text = "Load Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 59.0834
+margin_top = 43.9716
+margin_right = 154.083
+margin_bottom = 66.9716
+text = "Save Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadPage" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="SavePage" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[connection signal="pressed" from="LoadButton" to="." method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_SaveButton_pressed"]

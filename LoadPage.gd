@@ -87,7 +87,7 @@ func _format_time(time: Dictionary):
 	return date
 
 func _on_ExitButton_pressed():
-	queue_free()
+	hide()
 	
 func _process(delta):
 	dir_contents(loadDir)
