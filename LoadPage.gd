@@ -90,8 +90,6 @@ func _on_ExitButton_pressed():
 	hide()
 	
 func _process(delta):
-	dir_contents(loadDir)
-	load_files()
 	var records = vbox.get_children()
 	for r in records:
 		var n = r.get_node("RichTextLabel").has_focus()
